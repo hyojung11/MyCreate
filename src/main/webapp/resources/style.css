@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 html, body, #map-canvas {
         height: 100%;
         margin: 0px;
@@ -33,7 +35,7 @@ html, body, #map-canvas {
  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6', GradientType=0 );/*IE*/
 }
  
-/* ¸¶¿ì½º¿À¹ö */
+/* ë§ˆìš°ìŠ¤ì˜¤ë²„ */
 .ct-btn.white:focus,
 .ct-btn.white:hover {
     background: #f4f4f4;
@@ -41,7 +43,7 @@ html, body, #map-canvas {
  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#ffffff', GradientType=0 );/*IE*/
 }
  
-/* ´­·ÁÁ³°Å³ª ¼±ÅÃ µÈ »óÈ² */
+/* ëˆŒë ¤ì¡Œê±°ë‚˜ ì„ íƒ ëœ ìƒí™© */
 .ct-btn.white:active,
 .ct-btn.white.active {
     text-shadow: 0 1px 0px #fff;
