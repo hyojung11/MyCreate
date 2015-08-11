@@ -1,20 +1,14 @@
+<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
-<!DOCTYPE html>
 <html>
 <head>
 	<meta charest="UTF-8">
-	<title>Home</title>
-	<style>
-      html, body, #map-canvas {
-        height: 50%;
-        margin: 0px;
-        padding: 0px
-      }
-    </style>
+	<title>Home</title>	
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="js/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript">
 	var map;
 	function initialize() {
@@ -33,6 +27,9 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
+ <div onclick="facebooklogin()">
+ 	<button type="button" class="ct-btn white" value="버튼" onclick="alert('this button click Event')"> </button>
+ </div>
  <div id="map-canvas"></div>
 </body>
 </html>
