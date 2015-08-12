@@ -6,6 +6,7 @@
 <head>	
 	<title>Home</title>	
     <link rel="stylesheet" type="text/css" href="/resources/style.css">
+    <script src="http://connect.facebook.net/ko_KR/all.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 	<script src="/resources/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript">
@@ -17,6 +18,21 @@
 	    center: {lat: -34.397, lng: 150.644}
 	  });
 	}
+	
+	function facebooklogin() {		
+		  alert("왔어?");
+		  FB.login(function(response) {
+			  if (response.authResponse) {				  
+			       // callback 영역입니다. 자신의 브라우저가 페북에 연동되면 여기로직을 처리 하게 되죠
+				  alert("성공");
+			  } else {
+			       //오류가 났거나 연동이 실패 했을때 처리 하는부분.....
+				  alert("실패");
+			         }
+			       }
+			   , {scope: "user_about_me,publish_stream,read_friendlists,offline_access,email,user_birthday"} 
+			  );  
+		}
 	
 	google.maps.event.addDomListener(window, 'load', initialize);
 	
@@ -36,23 +52,7 @@
 		     js.src = "//connect.facebook.net/en_US/sdk.js";
 		     fjs.parentNode.insertBefore(js, fjs);
 		   }(document, 'script', 'facebook-jssdk'));
-	 
-	  function facebooklogin() {  
-		    //페이스북 로그인 버튼을 눌렀을 때의 루틴.  
-		        FB.login(function(response) {  
-		            var fbname;  
-		            var accessToken = response.authResponse.accessToken;  
-		            FB.api('/me', function(user) {  
-		                fbname = user.name;  
-		                //response.authResponse.userID  
-		                $.post("./php/fbloginprocess.php", { "userid": user.id, "username": fbname, "fbaccesstoken":accessToken},  
-		                function (responsephp) {  
-		                    //댓글을 처리한 다음 해당 웹페이지를 갱신 시키기 위해 호출.  
-		                    location.replace('./index.php');  
-		                });      
-		            });   
-		        }, {scope: 'publish_stream,user_likes'});  
-		}  
+	 	  	  
 	
 	</script>
 </head>
@@ -62,9 +62,8 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
- <div onclick="facebooklogin()">
- 	<button type="button" class="ct-btn white" value="버튼" onclick="alert('this button click Event')"> </button>
- </div>
+ http://javafactory.tistory.com/entry/JSP-%ED%8E%98%EC%9D%B4%EC%8A%A4%EB%B6%81-%EC%97%B0%EB%8F%99
+ <button type="button" class="ct-btn white" onclick="facebooklogin(); return false;">버튼</button>
  <div id="map-canvas"></div>
 </body>
 </html>
