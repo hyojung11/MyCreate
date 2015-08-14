@@ -11,6 +11,7 @@
 <body>
 <h1>	Hello world!</h1>
 <P>  The time on the server is ${serverTime}. </P>
+http://www.uengine.org:8088/wiki/index.php/Facebook_Open_API_%ED%99%9C%EC%9A%A9(Javascript_SDK)
  <button type="button" class="ct-btn white" onclick="facebooklogin(); return false;">로그인</button>
  <button type="button" class="ct-btn white" onclick="facebooklogout(); return false;">로그아웃</button>
  <input type="text" id="user_id">
