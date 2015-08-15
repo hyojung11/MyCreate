@@ -12,6 +12,51 @@
 <h1>	Hello world!</h1>
 <P>  The time on the server is ${serverTime}. </P>
 http://www.uengine.org:8088/wiki/index.php/Facebook_Open_API_%ED%99%9C%EC%9A%A9(Javascript_SDK)
+
+
+<div id="wrapper">
+
+	<ul class="menu">
+		<li class="item1"><a href="#">Friends <span>340</span></a>
+			<ul>
+				<li class="subitem1"><a href="#">Cute Kittens <span>14</span></a></li>
+				<li class="subitem2"><a href="#">Strange “Stuff” <span>6</span></a></li>
+				<li class="subitem3"><a href="#">Automatic Fails <span>2</span></a></li>
+			</ul>
+		</li>
+		<li class="item2"><a href="#">Videos <span>147</span></a>
+			<ul>
+				<li class="subitem1"><a href="#">Cute Kittens <span>14</span></a></li>
+				<li class="subitem2"><a href="#">Strange “Stuff” <span>6</span></a></li>
+				<li class="subitem3"><a href="#">Automatic Fails <span>2</span></a></li>
+			</ul>
+		</li>
+		<li class="item3"><a href="#">Galleries <span>340</span></a>
+			<ul>
+				<li class="subitem1"><a href="#">Cute Kittens <span>14</span></a></li>
+				<li class="subitem2"><a href="#">Strange “Stuff” <span>6</span></a></li>
+				<li class="subitem3"><a href="#">Automatic Fails <span>2</span></a></li>
+			</ul>
+		</li>
+		<li class="item4"><a href="#">Podcasts <span>222</span></a>
+			<ul>
+				<li class="subitem1"><a href="#">Cute Kittens <span>14</span></a></li>
+				<li class="subitem2"><a href="#">Strange “Stuff” <span>6</span></a></li>
+				<li class="subitem3"><a href="#">Automatic Fails <span>2</span></a></li>
+			</ul>
+		</li>
+		<li class="item5"><a href="#">Robots <span>16</span></a>
+			<ul>
+				<li class="subitem1"><a href="#">Cute Kittens <span>14</span></a></li>
+				<li class="subitem2"><a href="#">Strange “Stuff” <span>6</span></a></li>
+				<li class="subitem3"><a href="#">Automatic Fails <span>2</span></a></li>
+			</ul>
+		</li>
+	</ul>
+
+</div>
+
+
  <button type="button" class="ct-btn white" onclick="facebooklogin(); return false;">로그인</button>
  <button type="button" class="ct-btn white" onclick="facebooklogout(); return false;">로그아웃</button>
  <input type="text" id="user_id">
@@ -71,7 +116,28 @@ FB.init({
 			});
 	}
 		
-	 google.maps.event.addDomListener(window, 'load', initialize);			       			      
+	 google.maps.event.addDomListener(window, 'load', initialize);			      
+	 
+	 $(function() {
+			
+		    var menu_ul = $('.menu > li > ul'),
+		           menu_a  = $('.menu > li > a');
+		    
+		    menu_ul.hide();
+		
+		    menu_a.click(function(e) {
+		        e.preventDefault();
+		        if(!$(this).hasClass('active')) {
+		            menu_a.removeClass('active');
+		            menu_ul.filter(':visible').slideUp('normal');
+		            $(this).addClass('active').next().stop(true,true).slideDown('normal');
+		        } else {
+		            $(this).removeClass('active');
+		            $(this).next().stop(true,true).slideUp('normal');
+		        }
+		    });
+		
+		});
 	
 	</script>
 </body>
